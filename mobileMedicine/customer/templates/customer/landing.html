@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <form method="post" class="form-inline">
+            {% csrf_token %}
+
+
+            <div class="form-group mx-sm-3 mb-2">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Analysis list
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{% url 'diabetes' %}">Diabetes analysis</a>
+                        <a class="dropdown-item" href="#">Breast cancer analysis</a>
+                        <a class="dropdown-item" href="{% url 'heart' %}">Heart attack Analysis</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Analysis list
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Make an appointment </a>
+                        <a class="dropdown-item" href="#">Cancel an appointment</a>
+                        <a class="dropdown-item" href="#">Doctors ranking</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}

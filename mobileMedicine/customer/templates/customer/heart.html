@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form layout='horizontal' %}
+        <button type="submit" class="btn btn-primary mb-3">Analysis</button>
+    </form>
+
+
+        <p>Probability of heart attack: {{ x_neg }} </p>
+        <p>Probability of not heart attack: {{ x_pos }} </p>
+
+
+
+{% endblock %}
